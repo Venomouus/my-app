@@ -1,55 +1,55 @@
-import { useEffect, useState } from 'react';
-import blogFetch from '../axios/config';
+/* eslint-disable no-unused-vars */
+import axios from "axios"
+import blogFetch from "../axios/config"
+import { useState, useEffect } from "react"
 
-const Estado = () => {
-  const [estado, setEstado] = useState([]);
-  const [selectedState, setSelectedState] = useState(''); // Estado selecionado no componente de seleção
+import { Link } from "react-router-dom"
+import "./Home.css"
 
-  const buscarDados = async () => {
-    try {
-      const response = await blogFetch.get(`/api/report/v1/`);
-      const data = response.data.data;
-      console.log(data);
-
-      setEstado(data);
-    } catch (error) {
-      console.log(error);
-    }
+const Home = () => {
+    const [selectedState, setSelectedState] = useState(''); // Estado selecionado no componente de seleção
+    const [stateData, setStateData] = useState([]); // Estado para armazenar os dados do estado selecionado
+  
+    const fetchData = async () => {
+      try {
+        const response = await blogFetch.get('/api/report/v1');
+        setStateData(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    useEffect(() => {
+      fetchData();
+    }, []);
+  
+    const handleStateChange = (e) => {
+      setSelectedState(e.target.value);
+    };
+  
+    const filteredData = stateData.find((item) => item.state === selectedState);
+  
+    return (
+      <div className="status-covid">
+        <h1>Status da COVID-19 por Estado</h1>
+        <select onChange={handleStateChange}>
+          <option value="">Selecione um estado</option>
+          {stateData.map((item) => (
+            <option key={item.uid} value={item.state}>
+              {item.uf} - {item.state}
+            </option>
+          ))}
+        </select>
+        {filteredData && (
+          <div>
+            <h2>{filteredData.uf} - {filteredData.state}</h2>
+            <p>Casos: {filteredData.cases}</p>
+            <p>Mortes: {filteredData.deaths}</p>
+            <p>Suspeitos: {filteredData.suspects}</p>
+          </div>
+        )}
+      </div>
+    );
   };
 
-  useEffect(() => {
-    buscarDados();
-  }, []);
-
-  // Função para atualizar o estado selecionado
-  const handleStateChange = (event) => {
-    setSelectedState(event.target.value);
-  };
-
-  // Filtra os dados para exibir apenas o estado selecionado
-  const filteredData = estado.find((item) => item.uf === selectedState);
-
-  return (
-    <div className="home">
-      <h1>Status dos Estados</h1>
-      <select onChange={handleStateChange}>
-        <option value="">Selecione um estado</option>
-        {estado.map((item) => (
-          <option key={item.uf} value={item.uf}>
-            {item.state}
-          </option>
-        ))}
-      </select>
-      {selectedState && filteredData && (
-        <div>
-          <h2>{filteredData.state}</h2>
-          <p>Casos: {filteredData.cases}</p>
-          <p>Mortes: {filteredData.deaths}</p>
-          <p>Suspeitos: {filteredData.suspects}</p>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default Estado;
+export default Home
