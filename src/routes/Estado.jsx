@@ -7,8 +7,8 @@ import { Link } from "react-router-dom"
 import "./Home.css"
 
 const Home = () => {
-    const [selectedState, setSelectedState] = useState(''); // Estado selecionado no componente de seleção
-    const [stateData, setStateData] = useState([]); // Estado para armazenar os dados do estado selecionado
+    const [selectedState, setSelectedState] = useState(''); 
+    const [stateData, setStateData] = useState([]); 
   
     const fetchData = async () => {
       try {

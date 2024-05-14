@@ -54,7 +54,6 @@ const FormularioCovid = () => {
           value={formData.estado}
           required
         />
-        {/* Adicione os demais campos (casos, confirmados, mortos, recuperados, data) */}
         <button type="submit">Enviar</button>
         <button type="button" onClick={handleClear}>Limpar</button>
       </form>

@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import blogFetch from '../axios/config';
-import DatePicker from 'react-datepicker'; // Importar componente de calendário
-import 'react-datepicker/dist/react-datepicker.css'; // Importar estilos do DatePicker
+import DatePicker from 'react-datepicker'; 
+import 'react-datepicker/dist/react-datepicker.css'; 
 
 const CovidStatus = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date()); // Data inicial como data atual
-  const [data, setData] = useState({}); // Estado para armazenar os dados da COVID-19
+  const [selectedDate, setSelectedDate] = useState(new Date()); 
+  const [data, setData] = useState({}); 
 
   const fetchData = async () => {
     try {
-      const formattedDate = selectedDate.toISOString().split('T')[0]; // Formatar a data para o formato esperado
+      const formattedDate = selectedDate.toISOString().split('T')[0]; 
       const response = await blogFetch.get(`/api/report/v1?date=${formattedDate}`);
       const dataForDate = response.data.find((item) => item.datetime === formattedDate);
       setData(dataForDate);
