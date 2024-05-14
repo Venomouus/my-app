@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import blogFetch from "../axios/config"
 
 const StatusCovidPaises = () => {
-  const [selectedCountry, setSelectedCountry] = useState(''); // País selecionado no componente de seleção
-  const [countryData, setCountryData] = useState([]); // Estado para armazenar os dados do país selecionado
+  const [selectedCountry, setSelectedCountry] = useState(''); 
+  const [countryData, setCountryData] = useState([]); 
 
   const fetchData = async () => {
     try {
