@@ -10,8 +10,13 @@ function NavBar() {
         </h2>
         <ul>
             <li>
+                <Link to={`/estado`}>Estado</Link>
+            </li>
+
+            <li>
                 <Link to={`/`}>Home</Link>
             </li>
+
             <li>
                 <Link to={`/`} className="new-btn">
                     Novo post
