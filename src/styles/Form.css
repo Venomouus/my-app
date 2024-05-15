@@ -1,0 +1,74 @@
+.container{
+    max-width: 100%;
+    min-width: 50%;
+}
+
+.formulario-covid {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+   margin-top: 8rem;
+   border: 2px solid black;
+   margin: 12rem 30rem; 
+   background: #DCE2E9;
+   max-width: 100vw;
+   min-width: 45vw;
+}
+
+.formulario-covid h1{
+    font-size: 40px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem; 
+    color:#02799D;
+    border-bottom: 2px solid #D5D5D5;
+    
+}
+
+
+form input {
+    width: 100%;    
+    border: 1px solid var(--bd-input);
+    background: white;
+    padding: 1rem;
+    border-radius: .4rem;
+    background: #fff;
+    border: 1px solid rgba(73, 80, 87, 0.5);
+}
+
+form button {
+    margin-top: 1rem;
+    padding: .7rem;
+    width: 40%;
+
+    border-radius: .4rem;
+    border: none;
+    background-color: #02799d;
+    color: #fff;
+
+    display: inline-block;
+    
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: background .3s;
+
+}
+button{
+    margin-left: 0.4rem;
+}
+
+button + button {
+    margin-left: 4rem;
+}
+
+button:hover {
+    background: #025c77;
+}
+
+.result {
+    display: grid;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    
+}
+

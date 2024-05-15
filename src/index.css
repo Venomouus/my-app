@@ -4,8 +4,13 @@
   box-sizing: border-box;
 }
 
+.container{
+  max-width: 100vw;
+  min-width: 50vw;
+}
+
 body {
-  background-color: #5352EC;
+  background-color: #054F77;
   color: #fff;
 }
 

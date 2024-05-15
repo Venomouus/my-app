@@ -2,9 +2,9 @@
 import axios from "axios"
 import blogFetch from "../axios/config"
 import { useState, useEffect } from "react"
-
+import "../styles/Status.css"
 import { Link } from "react-router-dom"
-import "./Home.css"
+
 
 const Home = () => {
     const [selectedState, setSelectedState] = useState(''); 
@@ -41,7 +41,7 @@ const Home = () => {
           ))}
         </select>
         {filteredData && (
-          <div>
+          <div className="result">
             <h2>{filteredData.uf} - {filteredData.state}</h2>
             <p>Casos: {filteredData.cases}</p>
             <p>Mortes: {filteredData.deaths}</p>

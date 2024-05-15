@@ -4,8 +4,16 @@
     margin-bottom: 1.5rem;
 }
 
+.center {
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    margin-top: 8rem;
+    font-size: 50px;
+}
+
 .post {
-    display: flex;
+    
     flex-direction: column;
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;

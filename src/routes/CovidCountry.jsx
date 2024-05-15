@@ -1,6 +1,6 @@
-// src/components/StatusCovidPaises.js
 import { useState, useEffect } from 'react';
 import blogFetch from "../axios/config"
+import "../styles/Status.css"
 
 const StatusCovidPaises = () => {
   const [selectedCountry, setSelectedCountry] = useState(''); 
@@ -27,7 +27,7 @@ const StatusCovidPaises = () => {
   const filteredData = countryData.find((item) => item.country === selectedCountry);
 
   return (
-    <div className="status-covid-paises">
+    <div className="status-covid">
       <h1>Status da COVID-19 em Outros Países</h1>
       <select onChange={handleCountryChange}>
         <option value="">Selecione um país</option>
@@ -38,10 +38,11 @@ const StatusCovidPaises = () => {
         ))}
       </select>
       {filteredData && (
-        <div>
+        <div className='result'>
           <h2>{filteredData.country}</h2>
           <p>Casos Confirmados: {filteredData.confirmed}</p>
           <p>Mortes: {filteredData.deaths}</p>
+          
           
         </div>
       )}

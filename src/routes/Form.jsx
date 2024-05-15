@@ -1,5 +1,5 @@
-// src/components/FormularioCovid.js
 import { useState } from 'react';
+import "../styles/Form.css"
 
 const FormularioCovid = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ const FormularioCovid = () => {
     console.log('Recuperados:', formData.recuperados);
     console.log('Data:', formData.data);
 
-    // Simulação de envio para uma eventual API
+   
     console.log('JSON gerado:');
     console.log(JSON.stringify(formData));
   };
@@ -45,7 +45,8 @@ const FormularioCovid = () => {
   return (
     <div className="formulario-covid">
       <h1>Formulário COVID-19</h1>
-      <form onSubmit={handleSubmit}>
+      <div>
+      <form  onSubmit={handleSubmit}>
         <input
           type="text"
           name="estado"
@@ -58,7 +59,7 @@ const FormularioCovid = () => {
         <button type="button" onClick={handleClear}>Limpar</button>
       </form>
       {Object.keys(formData).length > 0 && (
-        <div>
+        <div className='result'>
           <h2>Dados enviados:</h2>
           <p><strong>Estado:</strong> {formData.estado}</p>
           <p><strong>Casos:</strong> {formData.casos}</p>
@@ -68,6 +69,7 @@ const FormularioCovid = () => {
           <p><strong>Data:</strong> {formData.data}</p>
         </div>
       )}
+      </div>
     </div>
   );
 };
